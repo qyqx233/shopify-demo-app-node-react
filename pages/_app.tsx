@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import App from 'next/app';
 import Head from 'next/head';
 import { AppProvider } from '@shopify/polaris';
@@ -8,6 +10,13 @@ import translations from '@shopify/polaris/locales/en.json';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 import ClientRouter from '../components/ClientRouter';
+import '../styles/globals.css';
+import React from 'react';
+
+// const {
+//   API_KEY
+// } = process.env;
+
 
 const client = new ApolloClient({
   fetchOptions: {
@@ -19,7 +28,6 @@ class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
     const config = { apiKey: API_KEY, shopOrigin: Cookies.get("shopOrigin"), forceRedirect: true };
-
     return (
       <React.Fragment>
         <Head>
@@ -39,4 +47,22 @@ class MyApp extends App {
   }
 }
 
-export default MyApp;
+
+
+
+function f({ Component, pageProps }) {
+  const config = {
+    apiKey: "111",
+    shopOrigin: "ivanka"
+  }
+  return <React.Fragment>
+    {/* <ClientRouter /> */}
+    <Provider config={config}>
+      <AppProvider i18n={translations}>
+        <Component {...pageProps} />
+      </AppProvider>
+    </Provider>
+  </React.Fragment>
+};
+
+export default f;

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    .grid-12 {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: auto;
+        justify-items: start;
+    }
+
+    .item1 {
+        grid-column-start: 11;
+        grid-column-end: 12;
+    }
+</style>
+
+<div class="grid-12">
+    <button style="grid-column-start: 12; grid-column-end:13">100</button>
+</div>
+</body>
+</html>

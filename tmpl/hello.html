@@ -1,0 +1,22 @@
+<html>
+<head>
+<script>
+window.addEventListener("message", receiveMessage, false) ;
+function receiveMessage(event) {
+     var origin= event.origin;
+}
+
+function loaded() {
+    if(window.top != window.self) {
+        console.log(`ne ${window.top} ${window.top === window.parent}`)
+    } else {
+        console.log('eq')
+    }
+}
+
+</script>
+</head>
+<body onload="loaded()">
+hello
+</body>
+</html>

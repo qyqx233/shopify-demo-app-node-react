@@ -1,0 +1,84 @@
+<body>
+<style>
+    .item {
+        background: cyan;
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        margin: 2px 2px 2px 2px;
+    }
+
+    .container {
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        /*align-items: center;*/
+        align-content:  space-between;
+        background: #dfe3e8;
+        width: 800px;
+        /*height: 300px;*/
+        /*justify-content: space-between;*/
+    }
+
+
+
+    .item1 {
+        background: hotpink;
+        display: inline-block;
+        /*width: 50px;*/
+        height: 50px;
+        margin: 2px 2px 2px 2px;
+    }
+
+    .item2 {
+        display: inline-block;
+    }
+
+    .flex-basis {
+        padding: 1em;
+        border: 1em solid deepskyblue;
+        color: deepskyblue;
+        flex-basis: 100px;
+        box-sizing: border-box;
+    }
+
+    .width {
+        padding: 1em;
+        border: 1em solid deepskyblue;
+        color: deepskyblue;
+        width: 100px;
+    }
+</style>
+<div>
+    <div class="container">
+        <item class="item2 width" style="order: 1">我设置了width 100px</item>
+        <item class="item2 flex-basis">我设置了flex-basis 100px</item>
+    </div>
+
+    <div style="display: flex">
+        <item style="background: #6f7bcb;margin-left:auto">100</item>
+    </div>
+    <div class="container">
+        <item class="item">1</item>
+        <item class="item">3</item>
+        <item class="item">2</item>
+        <item class="item">2</item>
+        <item class="item">2</item>
+        <item class="item">2</item>
+        <item class="item">2</item>
+        <item class="item">2</item>
+        <item class="item">2</item>
+        <item class="item">2</item>
+        <item class="item">2</item>
+        <item class="item">2</item>
+        <item class="item">2</item>
+        <item class="item">2</item>
+        <item class="item">2</item>
+        <item class="item">2</item>
+        <item class="item">2</item>
+        <item class="item">2</item>
+        <item class="item">2</item>
+    </div>
+    <pre contenteditable="true">1000</pre>
+</div>
+</body>

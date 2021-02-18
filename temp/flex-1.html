@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+
+    .flex-basis {
+        padding: 1em;
+        border: 1px solid deepskyblue;
+        color: deepskyblue;
+        flex-basis: 100px;
+        /*box-sizing: border-box;*/
+    }
+
+    .width {
+        padding: 1em;
+        border: 1px solid deepskyblue;
+        color: deepskyblue;
+        width: 100px;
+    }
+
+    .container {
+        display: flex;
+        border: 2px dashed crimson;
+    }
+
+    .container item {
+        flex: auto;
+    }
+
+    .container1 {
+        display: flex;
+        border: 2px dashed crimson;
+        width: 300px;
+    }
+
+    .container1 item {
+        flex: auto;
+    }
+
+    div item {
+        border: 2px dashed crimson;
+    }
+
+    .div1 item {
+        flex: auto;
+    }
+
+
+
+</style>
+<div style="display: flex; " class="div1">
+    <item>100</item>
+    <item>200</item>
+    <item>200</item>
+    <item>200</item>
+    <item>200</item>
+    <item>200</item>
+    <item>200</item>
+    <item>200</item>
+    <item>200</item>
+    <item>600</item>
+    <item>700</item>
+    <item>800</item>
+    <item>900</item>
+    <item>a00</item>
+</div>
+<div class="container">
+    <item>范张</item>
+    <item>范鑫</item>
+    <item>范旭</item>
+    <item>范帅</item>
+    <item>范哥</item>
+</div>
+
+<div class="container1">
+    <item class="flex-basis">我设置了flex-basis 100px</item>
+    <item class="width">我设置了width 100px</item>
+
+
+</div>
+</body>
+</html>
