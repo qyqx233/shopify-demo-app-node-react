@@ -1,0 +1,8 @@
+[*.js]
+ident_size = 2
+
+[*.tsx]
+ident_size = 2
+
+[*.ts]
+ident_size = 2

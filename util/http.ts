@@ -22,8 +22,18 @@ export async function getText(url = '', data = {}, host = process.env.API_HOST) 
     return response.text(); // parses JSON response into native JavaScript objects
 }
 
+export function object2Queries(data: Any): String {
+    let s = ''
+    for(const  k in data) {
+        s += k
+        s += '='
+        s += encodeURIComponent(data[k])
+    }
+    return s
+}
+
 export async function getJson(url = '', data = {}, host = process.env.API_HOST) {
-    const reqUrl = `${host}${url}`
+    const reqUrl = `${host}${url}?${object2Queries(data)}`
     const param = Object.assign({ method: 'GET' }, basicParam)
     const response = await fetch(reqUrl, param);
     return response.json(); // parses JSON response into native JavaScript objects

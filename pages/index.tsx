@@ -9,7 +9,8 @@ import React, { useState, useCallback, useRef, useEffect } from 'react';
 import { Provider, Context, useAppBridge } from '@shopify/app-bridge-react';
 import Head from 'next/head';
 // import styles from './hello.css';
-import { postData } from '../util/http'
+import { getJson, postData } from '../util/http'
+import { API_HOST } from '../util/config'
 
 function useDownload() {
     (async () => {
@@ -21,9 +22,15 @@ function useDownload() {
 function downloadClick(shopName: String) {
     (async () => {
         // @ts-ignore
-        postData('/api/v1/export_order', { name: shopName })
+        getJson('/api/v1/export_order/check', { name: shopName })
             .then(data => {
-                console.log(data); // JSON data parsed by `data.json()` call
+                const a = document.createElement('a')
+                try {
+                    a.setAttribute('download', '')
+                    a.setAttribute('href', `${process.env.API_HOST}/api/v1/export_order?name=${shopName}`)
+                    a.click()
+                } finally {
+                }
             }).catch(e => {
                 console.log(`e=${e}`)
             });
@@ -32,13 +39,7 @@ function downloadClick(shopName: String) {
         // const res = await req()
         // console.log(await res.json())
         return
-        const a = document.createElement('a')
-        try {
-            a.setAttribute('download', '')
-            a.setAttribute('href', 'http://127.0.0.1:4000/file')
-            a.click()
-        } finally {
-        }
+
     })()
 }
 
@@ -101,23 +102,30 @@ function DataTableExample() {
             .catch(e => { console.log(`error=${e}`) })
             .finally(() => { console.log('finally') });
     }, [])
+    const handleClearEmailClick = useCallback(
+        (value) => setEmail(''),
+        [],
+      );
 
     return <Page title={"点小秘订单助手"}>
         <FormLayout>
             {table}
-            <Button onClick={() => downloadClick('')}>导出excel</Button>
+            <Button onClick={() => downloadClick('test')}>导出excel</Button>
             <FormLayout.Group>
                 <TextField
                     value={email}
                     onChange={e => setEmail(e)}
                     label="邮箱地址"
                     type="email"
+                    clearButton
+                    onClearButtonClick={handleClearEmailClick}
                 />
                 <TextField
                     value={sendAt}
                     onChange={e => setSendAt(e)}
                     label="发送时间"
                     type="text"
+
                 />
             </FormLayout.Group>
             <Button submit>提交</Button>
